@@ -57,9 +57,10 @@ namespace sounds {
    */
   //% block
   export function play(soundId: SoundIds) {
-    const sound = soundData[soundId].replace(/[a-z]/g, function (letter) {
-      return repeatZero(letter.charCodeAt(0) - 64);
-    });
+    const sound = soundData[soundId]
+      .split("")
+      .map((l: any) => (isNaN(l) ? repeatZero(l.charCodeAt(0) - 64) : l))
+      .join("");
     music.__playSoundExpression(sound, true);
   }
 }
