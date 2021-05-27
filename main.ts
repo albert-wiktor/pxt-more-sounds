@@ -59,7 +59,7 @@ namespace sounds {
   export function play(soundId: SoundIds) {
     const sound = soundData[soundId]
       .split("")
-      .map((l: any) => (isNaN(l) ? repeatZero(l.charCodeAt(0) - 64) : l))
+      .map((l: string) => (l.charCodeAt(0) >= 65 ? repeatZero(l.charCodeAt(0) - 64) : l))
       .join("");
     music.__playSoundExpression(sound, true);
   }
