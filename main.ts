@@ -45,8 +45,8 @@ const soundData = [
 ];
 
 function repeatZero(n: number) {
-  var str = "";
-  for (var i = 0; i < n; i++) str += "0";
+  let str = "";
+  for (let i = 0; i < n; i++) str += "0";
   return str;
 }
 
